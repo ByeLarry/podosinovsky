@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ООО "Подосиновский"</title>
+    <meta name="description"
+        content="Производство и поставка пиломатериалов хвойных пород. Собственная сырьевая база, полный цикл, доставка по России и СНГ.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/trees.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/icons/logo.svg" alt="Логотип Подосиновский"
+                    style="height: 3rem; vertical-align: middle;">
+            </div>
+            <nav class="main-nav">
+                <a href="#about">О компании</a>
+                <a href="#advantages">Преимущества</a>
+                <a href="#terms">Партнёрство</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="theme-toggle">
+                <div class="toggle__wrapper">
+                    <div class="toggle__back">
+                        <div class="star star1"></div>
+                        <div class="star star2"></div>
+                        <div class="star star3"></div>
+                        <div class="star star4"></div>
+                        <div class="star star5"></div>
+                    </div>
+                    <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox">
+                    <label for="dark-mode-toggle" class="toggle-label"></label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero hero-animated">
+        <div class="container">
+            <h1 class="hero-slogan">Древесина, которой доверяют.<br><span class="hero-slogan-sub">Произведем. Доставим.
+                    Гарантируем.</span></h1>
+            <a href="#contacts" class="btn">Связаться с нами</a>
+        </div>
+        <div class="gallery-marquee-section">
+            <div class="gallery-marquee-wrapper">
+                <div class="gallery-marquee-track">
+                    <img src="assets/images/material1.jpg" alt="Материал 1" class="gallery-img">
+                    <img src="assets/images/tech1.jpg" alt="Техника 1" class="gallery-img">
+                    <img src="assets/images/material2.jpg" alt="Материал 2" class="gallery-img">
+                    <img src="assets/images/tech2.jpg" alt="Техника 2" class="gallery-img">
+                    <img src="assets/images/material3.jpg" alt="Материал 3" class="gallery-img">
+                    <img src="assets/images/tech3.jpg" alt="Техника 3" class="gallery-img">
+                    <!-- Дублируем для бесшовного эффекта -->
+                    <img src="assets/images/material1.jpg" alt="Материал 1" class="gallery-img">
+                    <img src="assets/images/tech1.jpg" alt="Техника 1" class="gallery-img">
+                    <img src="assets/images/material2.jpg" alt="Материал 2" class="gallery-img">
+                    <img src="assets/images/tech2.jpg" alt="Техника 2" class="gallery-img">
+                    <img src="assets/images/material3.jpg" alt="Материал 3" class="gallery-img">
+                    <img src="assets/images/tech3.jpg" alt="Техника 3" class="gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="about" class="about position-relative py-5">
+        <div class="container">
+            <h2 class="mb-4">О компании</h2>
+            <p class="mb-4">
+                ООО «Подосиновский» — это 24 года опыта, полный цикл производства пиломатериалов, собственная сырьевая
+                база и команда профессионалов.<br>
+                Мы предлагаем высококачественную продукцию по выгодным ценам, обеспечиваем индивидуальный подход и
+                надежную доставку.
+            </p>
+            <ul class="about-list">
+                <li><span>Современное оборудование</span> — лесозаготовительные машины, сушильные камеры, линия строжки
+                </li>
+                <li><span>Объём производства</span> — до 1500 м³ в месяц</li>
+                <li><span>Доставка</span> — по России и СНГ</li>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <h2>Наши преимущества</h2>
+            <div class="adv-list">
+                <div class="adv-item">Высокая плотность древесины — отличное качество пиломатериалов</div>
+                <div class="adv-item">Полный цикл: от лесозаготовки до упаковки</div>
+                <div class="adv-item">Выгодные цены от производителя</div>
+                <div class="adv-item">Индивидуальные условия для постоянных партнеров</div>
+                <div class="adv-item">Доставка автотранспортом и ж/д</div>
+                <div class="adv-item">Работаем по предоплате 70% / 30%</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="terms" class="terms">
+        <div class="container terms-flex">
+            <div class="terms-info">
+                <h2>Партнёрство с нами</h2>
+                <p>
+                    Мы ценим доверие и предлагаем гибкие условия для каждого клиента. Надёжность, прозрачность и
+                    индивидуальный подход — основа нашего сотрудничества.
+                </p>
+            </div>
+            <div class="terms-accordion fancy-accordion">
+                <div class="fancy-accordion-item">
+                    <button class="fancy-accordion-header" type="button">
+                        <span class="fancy-icon fancy-icon--truck"></span>
+                        <span class="fancy-title">Доставка и логистика</span>
+                        <span class="fancy-arrow"></span>
+                    </button>
+                    <div class="fancy-accordion-body">
+                        <p>Организуем быструю и надёжную доставку по всей России и СНГ. Используем автотранспорт и
+                            железнодорожные перевозки. Вся продукция тщательно упаковывается для сохранности в пути.</p>
+                    </div>
+                </div>
+                <div class="fancy-accordion-item">
+                    <button class="fancy-accordion-header" type="button">
+                        <span class="fancy-icon fancy-icon--money"></span>
+                        <span class="fancy-title">Финансовые гарантии</span>
+                        <span class="fancy-arrow"></span>
+                    </button>
+                    <div class="fancy-accordion-body">
+                        <p>Работаем по прозрачной схеме: 60% предоплата для запуска заказа, 40% — после подтверждения
+                            готовности к отгрузке. Для постоянных клиентов — индивидуальные условия оплаты.</p>
+                    </div>
+                </div>
+                <div class="fancy-accordion-item">
+                    <button class="fancy-accordion-header" type="button">
+                        <span class="fancy-icon fancy-icon--shield"></span>
+                        <span class="fancy-title">Качество и поддержка</span>
+                        <span class="fancy-arrow"></span>
+                    </button>
+                    <div class="fancy-accordion-body">
+                        <p>Вся продукция соответствует стандартам ГОСТ. Мы всегда на связи, помогаем подобрать
+                            оптимальные решения и оперативно отвечаем на ваши вопросы.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contacts-list">
+                <div class="contact-card">
+                    <img src="assets/images/elizaveta.jpg" alt="Елизавета" class="contact-photo">
+                    <div class="contact-info">
+                        <div class="contact-name">Елизавета</div>
+                        <div class="contact-role">Менеджер по работе с клиентами</div>
+                        <a href="tel:89264251562" class="contact-phone">8 926 425-15-62</a>
+                        <a href="mailto:podosinovskii@mail.ru" class="contact-email">podosinovskii@mail.ru</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <img src="assets/images/sergey.PNG" alt="Сергей" class="contact-photo">
+                    <div class="contact-info">
+                        <div class="contact-name">Сергей</div>
+                        <div class="contact-role">Директор</div>
+                        <a href="tel:89229234763" class="contact-phone">8 922 923-47-63</a>
+                        <a href="mailto:podosinovskii@mail.ru" class="contact-email">podosinovskii@mail.ru</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="map" class="map">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A415c30239a63f7900dc4d7d1159efb501395a979d55de025d82b2bd50277c7e7&amp;width=100%25&amp;height=450&amp;lang=ru_RU&amp;scroll=false"></script>
+    </section>
+
+    <section id="contact-form-block" class="contact-form-block">
+        <div class="contact-form-wrapper">
+            <div class="contact-form-img">
+                <img src="assets/images/contact-us.jpg" alt="Пиломатериалы" />
+            </div>
+            <form class="contact-form-modern">
+                <h2>Связаться с нами</h2>
+                <label>
+                    <span>Ваше имя</span>
+                    <input type="text" name="name" placeholder="Ваше имя" required />
+                </label>
+                <label>
+                    <span>Телефон</span>
+                    <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required />
+                </label>
+                <label>
+                    <span>Что бы вы хотели уточнить?</span>
+                    <textarea name="message" placeholder="Ваш вопрос"></textarea>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" required />
+                    <span>Согласен с <a href="privacy.html" class="privacy-link" target="_blank">политикой
+                            конфиденциальности</a></span>
+                </label>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-row-top">
+                <div class="footer-copyright-block">
+                    <span class="footer-copyright">&copy; 2025 ООО «Подосиновский»</span>
+                </div>
+                <div class="footer-privacy-block">
+                    <a href="privacy.html" class="footer-privacy-link" target="_blank">Политика конфиденциальности</a>
+                </div>
+                <div class="footer-inn-block">
+                    <div class="footer-inn-label">ИНН</div>
+                    <div class="footer-inn-value">4326001840</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

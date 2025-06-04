@@ -847,8 +847,15 @@ section h2::after {
     position: relative;
     transition: background 0.2s;
     z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .fancy-accordion-header:hover {
+    background: #eaf6f3;
+}
+.fancy-accordion-header:active {
     background: #eaf6f3;
 }
 .fancy-icon {
@@ -945,6 +952,18 @@ section h2::after {
     }
     .fancy-accordion-header, .fancy-accordion-body {
         padding-left: 3.2rem;
+    }
+    .fancy-icon {
+        display: none;
+    }
+    .fancy-accordion-header {
+        padding-left: 2.5rem;
+    }
+    .fancy-accordion-body {
+        padding-left: 2.5rem;
+    }
+    .fancy-accordion-item.open .fancy-accordion-body {
+        padding-left: 2.5rem;
     }
 }
 
@@ -1296,8 +1315,8 @@ body.dark-theme .contact-phone:hover, body.dark-theme .contact-email:hover {
         min-height: unset;
         border-radius: 0 0 18px 18px;
     }
-    .contact-form-img img {
-        transform: scale(1.13) translateY(10px);
+    .contact-form-img {
+        display: none;
     }
     .contact-form-modern {
         padding: 2rem 1rem;

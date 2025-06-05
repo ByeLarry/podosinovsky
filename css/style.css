@@ -46,6 +46,10 @@ body {
     padding: 0;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1863,4 +1867,43 @@ section.map iframe:hover {
 
 body.dark-theme .logo img {
     filter: brightness(0) invert(1);
+}
+
+/* Стили для модального окна просмотра изображений */
+.image-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85); /* Затемненный фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2500; /* Выше других элементов */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-modal-content {
+    max-width: 70%; 
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-modal-img {
+    display: block;
+    max-height: 85vh;
+    max-width: 85vw;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }

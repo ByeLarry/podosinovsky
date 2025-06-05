@@ -315,4 +315,26 @@ document.addEventListener("DOMContentLoaded", () => {
          });
         updateMarqueeAnimation();
     });
+
+    // Модальное окно для просмотра изображений
+    const imageModalOverlay = document.querySelector('.image-modal-overlay');
+    const imageModalImg = document.querySelector('.image-modal-img');
+    const galleryImgs = document.querySelectorAll('.gallery-img');
+
+    galleryImgs.forEach(img => {
+        img.addEventListener('click', () => {
+            imageModalImg.src = img.src;
+            imageModalOverlay.classList.add('visible');
+            document.body.classList.add('modal-open');
+        });
+    });
+
+    imageModalOverlay.addEventListener('click', (e) => {
+        // Закрываем модальное окно только если клик был по оверлею, а не по самому изображению
+        if (e.target === imageModalOverlay || e.target.parentElement === imageModalOverlay) {
+             imageModalOverlay.classList.remove('visible');
+             document.body.classList.remove('modal-open');
+        }
+    });
+
 }); 

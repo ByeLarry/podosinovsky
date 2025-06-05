@@ -197,4 +197,121 @@ requiredInputs.forEach(input => {
 checkbox.addEventListener('change', checkFormValidity);
 
 // Проверяем форму при загрузке страницы
-checkFormValidity(); 
+checkFormValidity();
+
+// Функция для показа уведомления
+function showNotification(type = 'success') {
+    // Скрываем все уведомления
+    document.querySelectorAll('.form-notification').forEach(notification => {
+        notification.classList.remove('show');
+    });
+    
+    // Показываем нужное уведомление
+    const notification = document.querySelector(`.form-notification--${type}`);
+    notification.classList.add('show');
+    
+    // Скрываем уведомление через 3 секунды
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
+
+// Обработчик отправки формы
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    try {
+        const formData = new FormData(this);
+        const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Очищаем все поля формы
+            this.reset();
+            // Сбрасываем состояние чекбокса
+            checkbox.checked = false;
+            // Проверяем валидность формы после очистки
+            checkFormValidity();
+            // Показываем уведомление об успешной отправке
+            showNotification('success');
+        } else {
+            // Показываем уведомление об ошибке
+            showNotification('error');
+        }
+    } catch (error) {
+        console.error('Ошибка при отправке формы:', error);
+        // Показываем уведомление об ошибке
+        showNotification('error');
+    }
+});
+
+// Обработчик загрузки изображений галереи с заглушкой и настройка анимации
+document.addEventListener("DOMContentLoaded", () => {
+    const galleryImages = document.querySelectorAll('img.gallery-img');
+    const galleryTrack = document.querySelector('.gallery-marquee-track');
+    let imagesLoadedCount = 0;
+    const totalImages = galleryImages.length;
+
+    const updateMarqueeAnimation = () => {
+        // Убедимся, что все изображения загружены, чтобы width: max-content был корректным
+        if (imagesLoadedCount === totalImages) {
+            // Ширина одного набора изображений - это половина общей ширины трека
+            const trackWidth = galleryTrack.scrollWidth; // scrollWidth дает полную ширину элемента, включая скрытые части
+            const singleSetWidth = trackWidth / 2;
+
+            // Устанавливаем CSS переменные для анимации
+            galleryTrack.style.setProperty('--marquee-translate-start', `-${singleSetWidth}px`);
+            galleryTrack.style.setProperty('--marquee-translate-end', '0px');
+
+            // Перезапускаем анимацию, если необходимо (может потребоваться удаление/добавление класса анимации)
+             galleryTrack.style.animation = 'none'; // Временно отключаем анимацию
+             void galleryTrack.offsetWidth; // Вызываем reflow для сброса анимации
+             galleryTrack.style.animation = ''; // Включаем анимацию снова (используя стили из CSS)
+        }
+    };
+
+    galleryImages.forEach(img => {
+        // Обработчик события load
+        const imgLoadHandler = () => {
+            img.classList.remove('lazy-load');
+            img.classList.add('loaded');
+            imagesLoadedCount++;
+            updateMarqueeAnimation();
+        };
+
+        // Обработчик события error
+        const imgErrorHandler = () => {
+            console.error('Ошибка загрузки изображения:', img.src);
+            img.classList.remove('lazy-load'); // Убираем заглушку даже при ошибке
+            img.classList.add('error-loaded'); // Добавляем класс ошибки
+            imagesLoadedCount++;
+            updateMarqueeAnimation();
+        };
+
+        // Если изображение уже загружено (например, из кеша),
+        // сразу убираем заглушку и учитываем его в счетчике
+        if (img.complete || (img.naturalWidth > 0 && img.naturalHeight > 0)) {
+             imgLoadHandler(); // Вызываем обработчик загрузки сразу
+        } else {
+            // Если изображение еще не загружено, добавляем обработчики событий
+            img.addEventListener('load', imgLoadHandler);
+            img.addEventListener('error', imgErrorHandler);
+        }
+    });
+
+     // Также проверяем и обновляем анимацию на случай изменения размера окна
+    window.addEventListener('resize', () => {
+         imagesLoadedCount = 0; // Сбрасываем счетчик, чтобы пересчитать после resize (изображения уже в кеше)
+         galleryImages.forEach(img => {
+             // Если изображение уже загружено после resize
+            if (img.complete || (img.naturalWidth > 0 && img.naturalHeight > 0)) {
+                imagesLoadedCount++;
+            }
+         });
+        updateMarqueeAnimation();
+    });
+}); 

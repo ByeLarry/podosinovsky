@@ -290,6 +290,7 @@ nav a:hover::after {
     .header .container {
         flex-direction: column;
         gap: 1rem;
+        padding: 0.3rem 20px;
     }
     
     nav {
@@ -1552,10 +1553,10 @@ body.dark-theme .modal-content h3 {
 
 @keyframes gallery-marquee-move-right {
     0% {
-        transform: translateX(-50%);
+        transform: translateX(var(--marquee-translate-start, -50%));
     }
     100% {
-        transform: translateX(0);
+        transform: translateX(var(--marquee-translate-end, 0));
     }
 }
 
@@ -1569,6 +1570,18 @@ body.dark-theme .modal-content h3 {
     max-width: 320px;
     flex-shrink: 0;
     display: block;
+}
+
+.gallery-img.lazy-load {
+    background: #e0e0e0;
+}
+
+.gallery-img.lazy-load.loaded {
+    background: none;
+}
+
+.gallery-img.error-loaded {
+    background: repeating-linear-gradient(45deg, #e0e0e0, #e0e0e0 10px, #f0f0f0 10px, #f0f0f0 20px);
 }
 
 @media (max-width: 900px) {
@@ -1681,4 +1694,87 @@ section.map iframe {
 
 section.map iframe:hover {
     box-shadow: 0 8px 48px 0 rgba(44, 92, 80, 0.25);
+}
+
+/* Стили для уведомления об успешной отправке формы */
+.form-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(45, 90, 39, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transform: translateX(120%);
+    transition: transform 0.5s cubic-bezier(.77,0,.18,1);
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(.77,0,.18,1), opacity 0.5s ease;
+}
+
+.form-notification--success {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.form-notification--error {
+    background: #dc3545;
+    color: #fff;
+}
+
+.form-notification.show {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.form-notification-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.form-notification--success .form-notification-icon {
+    background: var(--bg-color);
+}
+
+.form-notification--error .form-notification-icon {
+    background: #fff;
+}
+
+.form-notification--success .form-notification-icon::before {
+    content: '✓';
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-notification--error .form-notification-icon::before {
+    content: '!';
+    color: #dc3545;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-notification-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .form-notification {
+        left: 20px;
+        right: 20px;
+        transform: translateY(-120%);
+    }
+    .form-notification.show {
+        transform: translateY(0);
+    }
 }

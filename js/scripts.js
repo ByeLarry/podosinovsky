@@ -1,5 +1,39 @@
 // Инициализация при загрузке DOM
 document.addEventListener("DOMContentLoaded", () => {
+  // Предотвращение автоматической прокрутки к якорю на сенсорных устройствах
+  if ('ontouchstart' in window) {
+    const hash = window.location.hash;
+    if (hash) {
+      // Сохраняем хэш
+      const targetId = hash.substring(1);
+      // Удаляем хэш из URL без прокрутки
+      history.replaceState(null, null, ' ');
+      // Добавляем обработчик для ручной прокрутки
+      document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+        if (link.getAttribute('href') === hash) {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        }
+      });
+    }
+  }
+
+  // Плавная прокрутка к якорям для всех ссылок с якорями
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
   // Настройка Intersection Observer для анимации появления секций
   const observer = new IntersectionObserver(
     (entries, obs) => {
@@ -16,17 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Наблюдение за всеми секциями
   document.querySelectorAll("section").forEach((section) => {
     observer.observe(section);
-  });
-});
-
-// Плавная прокрутка к якорям
-document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
   });
 });
 

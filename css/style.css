@@ -1553,10 +1553,10 @@ body.dark-theme .modal-content h3 {
 
 @keyframes gallery-marquee-move-right {
     0% {
-        transform: translateX(-50%);
+        transform: translateX(var(--marquee-translate-start, -50%));
     }
     100% {
-        transform: translateX(0);
+        transform: translateX(var(--marquee-translate-end, 0));
     }
 }
 
@@ -1570,6 +1570,18 @@ body.dark-theme .modal-content h3 {
     max-width: 320px;
     flex-shrink: 0;
     display: block;
+}
+
+.gallery-img.lazy-load {
+    background: #e0e0e0;
+}
+
+.gallery-img.lazy-load.loaded {
+    background: none;
+}
+
+.gallery-img.error-loaded {
+    background: repeating-linear-gradient(45deg, #e0e0e0, #e0e0e0 10px, #f0f0f0 10px, #f0f0f0 20px);
 }
 
 @media (max-width: 900px) {

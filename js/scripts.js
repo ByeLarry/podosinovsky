@@ -197,4 +197,54 @@ requiredInputs.forEach(input => {
 checkbox.addEventListener('change', checkFormValidity);
 
 // Проверяем форму при загрузке страницы
-checkFormValidity(); 
+checkFormValidity();
+
+// Функция для показа уведомления
+function showNotification(type = 'success') {
+    // Скрываем все уведомления
+    document.querySelectorAll('.form-notification').forEach(notification => {
+        notification.classList.remove('show');
+    });
+    
+    // Показываем нужное уведомление
+    const notification = document.querySelector(`.form-notification--${type}`);
+    notification.classList.add('show');
+    
+    // Скрываем уведомление через 3 секунды
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
+
+// Обработчик отправки формы
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    try {
+        const formData = new FormData(this);
+        const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Очищаем все поля формы
+            this.reset();
+            // Сбрасываем состояние чекбокса
+            checkbox.checked = false;
+            // Проверяем валидность формы после очистки
+            checkFormValidity();
+            // Показываем уведомление об успешной отправке
+            showNotification('success');
+        } else {
+            // Показываем уведомление об ошибке
+            showNotification('error');
+        }
+    } catch (error) {
+        console.error('Ошибка при отправке формы:', error);
+        // Показываем уведомление об ошибке
+        showNotification('error');
+    }
+}); 

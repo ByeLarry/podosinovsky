@@ -132,8 +132,7 @@
                         <span class="fancy-arrow"></span>
                     </button>
                     <div class="fancy-accordion-body">
-                        <p>Работаем по прозрачной схеме: 60% предоплата для запуска заказа, 40% — после подтверждения
-                            готовности к отгрузке. Для постоянных клиентов — индивидуальные условия оплаты.</p>
+                        <p>Работаем по предоплате 70% до погрузки пиломатериала и оставшиеся 30% стоимости перечисляется на счёт организации по факту загрузки в ж/д транспорт. Для постоянных клиентов — индивидуальные условия оплаты.</p>
                     </div>
                 </div>
                 <div class="fancy-accordion-item">
@@ -178,7 +177,7 @@
     </section>
 
     <section id="map" class="map">
-        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A415c30239a63f7900dc4d7d1159efb501395a979d55de025d82b2bd50277c7e7&amp;width=100%25&amp;height=450&amp;lang=ru_RU&amp;scroll=false&amp;scrollZoom=false"></script>
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A415c30239a63f7900dc4d7d1159efb501395a979d55de025d82b2bd50277c7e7&amp;width=100%25&amp;height=450&amp;lang=ru_RU&amp;scroll=false&amp;"></script>
     </section>
 
     <section id="contact-form-block" class="contact-form-block">
@@ -186,7 +185,9 @@
             <div class="contact-form-img">
                 <img src="assets/images/contact-us.jpg" alt="Пиломатериалы" />
             </div>
-            <form class="contact-form-modern">
+            <form class="contact-form-modern" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="9642cbd1-8b5b-4286-ad94-504d2a35a03d">
+
                 <h2>Связаться с нами</h2>
                 <label>
                     <span>Ваше имя</span>
@@ -227,6 +228,16 @@
         </div>
     </footer>
     <script src="js/scripts.js"></script>
+    
+    <!-- Уведомления о статусе отправки формы -->
+    <div class="form-notification form-notification--success">
+        <div class="form-notification-icon"></div>
+        <div class="form-notification-text">Форма успешно отправлена</div>
+    </div>
+    <div class="form-notification form-notification--error">
+        <div class="form-notification-icon"></div>
+        <div class="form-notification-text">Не удалось отправить форму</div>
+    </div>
 </body>
 
 </html>

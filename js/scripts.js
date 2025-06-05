@@ -268,9 +268,10 @@ document.addEventListener("DOMContentLoaded", () => {
             galleryTrack.style.setProperty('--marquee-translate-end', '0px');
 
             // Перезапускаем анимацию, если необходимо (может потребоваться удаление/добавление класса анимации)
-             galleryTrack.style.animation = 'none'; // Временно отключаем анимацию
-             void galleryTrack.offsetWidth; // Вызываем reflow для сброса анимации
-             galleryTrack.style.animation = ''; // Включаем анимацию снова (используя стили из CSS)
+            // Убираем явный сброс анимации, полагаясь на браузер при изменении переменных
+            // galleryTrack.style.animation = 'none'; // Временно отключаем анимацию
+            // void galleryTrack.offsetWidth; // Вызываем reflow для сброса анимации
+            // galleryTrack.style.animation = ''; // Включаем анимацию снова (используя стили из CSS)
         }
     };
 

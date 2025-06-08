@@ -322,14 +322,70 @@ document.addEventListener("DOMContentLoaded", () => {
   const imageModalImg = document.querySelector(".image-modal-img");
   const galleryImgs = document.querySelectorAll(".gallery-img");
   const imageModalCloseButton = document.querySelector(".image-modal-close");
+  const prevButton = document.querySelector(".image-modal-prev");
+  const nextButton = document.querySelector(".image-modal-next");
+  
+  let currentImageIndex = 0;
+  const images = Array.from(galleryImgs).filter(img => !img.classList.contains('lazy-load'));
 
   // Открытие модального окна при клике на изображение
-  galleryImgs.forEach((img) => {
+  galleryImgs.forEach((img, index) => {
     img.addEventListener("click", () => {
+      currentImageIndex = index;
       imageModalImg.src = img.src;
       imageModalOverlay.classList.add("visible");
       document.body.classList.add("modal-open");
+      updateNavigationButtons();
     });
+  });
+
+  // Функция обновления состояния кнопок навигации
+  function updateNavigationButtons() {
+    // Кнопки всегда видны, так как навигация циклическая
+    prevButton.style.display = 'flex';
+    nextButton.style.display = 'flex';
+  }
+
+  // Функция переключения изображений с анимацией
+  function switchImage(direction) {
+    let newIndex;
+    if (direction === 'next') {
+      newIndex = currentImageIndex + 1;
+      if (newIndex >= images.length) {
+        newIndex = 0; // Возвращаемся к первому изображению
+      }
+    } else {
+      newIndex = currentImageIndex - 1;
+      if (newIndex < 0) {
+        newIndex = images.length - 1; // Переходим к последнему изображению
+      }
+    }
+
+    imageModalImg.classList.add(direction === 'next' ? 'sliding-left' : 'sliding-right');
+    
+    setTimeout(() => {
+      currentImageIndex = newIndex;
+      imageModalImg.src = images[currentImageIndex].src;
+      imageModalImg.classList.remove('sliding-left', 'sliding-right');
+    }, 300);
+  }
+
+  // Обработчики кнопок навигации
+  prevButton.addEventListener("click", () => switchImage('prev'));
+  nextButton.addEventListener("click", () => switchImage('next'));
+
+  // Обработка клавиш клавиатуры
+  document.addEventListener('keydown', (e) => {
+    if (imageModalOverlay.classList.contains('visible')) {
+      if (e.key === 'ArrowLeft') {
+        switchImage('prev');
+      } else if (e.key === 'ArrowRight') {
+        switchImage('next');
+      } else if (e.key === 'Escape') {
+        imageModalOverlay.classList.remove("visible");
+        document.body.classList.remove("modal-open");
+      }
+    }
   });
 
   // Закрытие модального окна при клике на оверлей

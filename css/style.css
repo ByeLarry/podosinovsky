@@ -2024,17 +2024,29 @@ body.dark-theme .map-address {
 }
 
 .image-modal-img {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.2 ease, opacity 0.2 ease;
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
 }
 
-.image-modal-img.sliding-left {
+/* Исчезающая (текущая) картинка */
+.image-modal-img.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Новая картинка начинает появляться из нужной стороны */
+.image-modal-img.from-left {
   transform: translateX(-100%);
   opacity: 0;
+  visibility: visible;
 }
 
-.image-modal-img.sliding-right {
+.image-modal-img.from-right {
   transform: translateX(100%);
   opacity: 0;
+  visibility: visible;
 }
 
 @media (max-width: 900px) {
@@ -2068,4 +2080,12 @@ body.dark-theme .map-address {
   .image-modal-next {
     right: 10px;
   }
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
 }

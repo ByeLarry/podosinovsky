@@ -2023,31 +2023,28 @@ body.dark-theme .map-address {
   right: 15px;
 }
 
-.image-modal-img {
-  transition: transform 0.2 ease, opacity 0.2 ease;
-  opacity: 1;
-  transform: translateX(0);
-  visibility: visible;
-}
-
-/* Исчезающая (текущая) картинка */
-.image-modal-img.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* Новая картинка начинает появляться из нужной стороны */
-.image-modal-img.from-left {
+/* Старая картинка уходит */
+.image-modal-img.sliding-left {
   transform: translateX(-100%);
   opacity: 0;
-  visibility: visible;
 }
 
-.image-modal-img.from-right {
+.image-modal-img.sliding-right {
   transform: translateX(100%);
   opacity: 0;
-  visibility: visible;
 }
+
+/* Новая картинка приходит */
+.image-modal-img.incoming-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.image-modal-img.incoming-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
 
 @media (max-width: 900px) {
   .image-modal-nav {

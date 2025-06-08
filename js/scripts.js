@@ -1,21 +1,21 @@
 // Инициализация при загрузке DOM
 document.addEventListener("DOMContentLoaded", () => {
   // Предотвращение автоматической прокрутки к якорю на сенсорных устройствах
-  if ('ontouchstart' in window) {
+  if ("ontouchstart" in window) {
     const hash = window.location.hash;
     if (hash) {
       // Сохраняем хэш
       const targetId = hash.substring(1);
       // Удаляем хэш из URL без прокрутки
-      history.replaceState(null, null, ' ');
+      history.replaceState(null, null, " ");
       // Добавляем обработчик для ручной прокрутки
-      document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-        if (link.getAttribute('href') === hash) {
-          link.addEventListener('click', (e) => {
+      document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
+        if (link.getAttribute("href") === hash) {
+          link.addEventListener("click", (e) => {
             e.preventDefault();
             const target = document.getElementById(targetId);
             if (target) {
-              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
             }
           });
         }
@@ -324,9 +324,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const imageModalCloseButton = document.querySelector(".image-modal-close");
   const prevButton = document.querySelector(".image-modal-prev");
   const nextButton = document.querySelector(".image-modal-next");
-  
+
   let currentImageIndex = 0;
-  const images = Array.from(galleryImgs).filter(img => !img.classList.contains('lazy-load'));
+  const images = Array.from(galleryImgs).filter(
+    (img) => !img.classList.contains("lazy-load")
+  );
 
   // Открытие модального окна при клике на изображение
   galleryImgs.forEach((img, index) => {
@@ -340,56 +342,45 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Функция обновления состояния кнопок навигации
-  function updateNavigationButtons() {
-    // Кнопки всегда видны, так как навигация циклическая
-    prevButton.style.display = 'flex';
-    nextButton.style.display = 'flex';
-  }
-
   // Функция переключения изображений с анимацией
   function switchImage(direction) {
-    const fromClass = direction === 'next' ? 'from-right' : 'from-left';
-  
-    // 1. Плавно скрываем текущую картинку
-    imageModalImg.classList.add('hidden');
-  
-    // 2. Ждём, пока скрытие завершится (время = transition в CSS)
+    let newIndex;
+    if (direction === "next") {
+      newIndex = currentImageIndex + 1;
+      if (newIndex >= images.length) {
+        newIndex = 0; // Возвращаемся к первому изображению
+      }
+    } else {
+      newIndex = currentImageIndex - 1;
+      if (newIndex < 0) {
+        newIndex = images.length - 1; // Переходим к последнему изображению
+      }
+    }
+    imageModalImg.classList.add("display-none");
+    imageModalImg.classList.add(
+      direction === "next" ? "sliding-right" : "sliding-left"
+    );
+
     setTimeout(() => {
-      // 3. Меняем индекс и изображение
-      currentImageIndex = direction === 'next'
-        ? (currentImageIndex + 1) % images.length
-        : (currentImageIndex - 1 + images.length) % images.length;
-  
+      currentImageIndex = newIndex;
       imageModalImg.src = images[currentImageIndex].src;
-  
-      // 4. Готовим анимацию входа с нужной стороны
-      imageModalImg.classList.remove('hidden');
-      imageModalImg.classList.add(fromClass);
-  
-      // 5. Триггерим анимацию входа (два requestAnimationFrame для надёжности)
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          imageModalImg.classList.remove(fromClass);
-        });
-      });
-  
-    }, 200); 
+      imageModalImg.classList.remove("display-none");
+      imageModalImg.classList.remove("sliding-left", "sliding-right");
+    }, 300);
   }
-  
-  
 
   // Обработчики кнопок навигации
-  prevButton.addEventListener("click", () => switchImage('prev'));
-  nextButton.addEventListener("click", () => switchImage('next'));
+  prevButton.addEventListener("click", () => switchImage("prev"));
+  nextButton.addEventListener("click", () => switchImage("next"));
 
   // Обработка клавиш клавиатуры
-  document.addEventListener('keydown', (e) => {
-    if (imageModalOverlay.classList.contains('visible')) {
-      if (e.key === 'ArrowLeft') {
-        switchImage('prev');
-      } else if (e.key === 'ArrowRight') {
-        switchImage('next');
-      } else if (e.key === 'Escape') {
+  document.addEventListener("keydown", (e) => {
+    if (imageModalOverlay.classList.contains("visible")) {
+      if (e.key === "ArrowLeft") {
+        switchImage("prev");
+      } else if (e.key === "ArrowRight") {
+        switchImage("next");
+      } else if (e.key === "Escape") {
         imageModalOverlay.classList.remove("visible");
         document.body.classList.remove("modal-open");
       }

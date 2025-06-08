@@ -416,3 +416,36 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("modal-open");
   });
 });
+
+
+function loadAllImages() {
+  const images = Array.from(galleryImgs);
+  return Promise.all(
+      images.map((img) => {
+          return new Promise((resolve) => {
+              img.classList.remove("lazy-load");
+              
+              if (img.complete) {
+                  img.classList.add("loaded");
+                  imagesLoadedCount++;
+                  updateMarqueeAnimation();
+                  resolve();
+              } else {
+                  img.onload = () => {
+                      img.classList.add("loaded");
+                      imagesLoadedCount++;
+                      updateMarqueeAnimation();
+                      resolve();
+                  };
+                  img.onerror = () => {
+                      console.error("Ошибка загрузки изображения:", img.src);
+                      img.classList.add("error-loaded");
+                      imagesLoadedCount++;
+                      updateMarqueeAnimation();
+                      resolve();
+                  };
+              }
+          });
+      })
+  );
+}

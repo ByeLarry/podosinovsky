@@ -2023,9 +2023,9 @@ body.dark-theme .map-address {
   right: 15px;
 }
 
-.image-modal-img {
+/* .image-modal-img {
   transition: transform 0.3s ease, opacity 0.3s ease;
-}
+} */
 
 .image-modal-img.sliding-left {
   transform: translateX(-100%);

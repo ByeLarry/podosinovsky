@@ -1999,7 +1999,7 @@ body.dark-theme .map-address {
   border: none;
   color: #fff;
   font-size: 2.25rem;
-  padding: 1.5rem;
+  padding: 0;
   cursor: pointer;
   z-index: 2510;
   transition: background-color 0.3s ease;
@@ -2009,6 +2009,8 @@ body.dark-theme .map-address {
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
+  font-family: Arial, sans-serif;
 }
 
 .image-modal-nav:hover {
@@ -2023,26 +2025,11 @@ body.dark-theme .map-address {
   right: 15px;
 }
 
-/* .image-modal-img {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-} */
-
-.image-modal-img.sliding-left {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-
-.image-modal-img.sliding-right {
-  transform: translateX(100%);
-  opacity: 0;
-}
-
 @media (max-width: 900px) {
   .image-modal-nav {
     font-size: 2.25rem;
     width: 60px;
     height: 60px;
-    padding: 1.5rem;
   }
   
   .image-modal-prev {

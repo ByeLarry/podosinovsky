@@ -2023,7 +2023,10 @@ body.dark-theme .map-address {
   right: 15px;
 }
 
-/* Старая картинка уходит */
+.image-modal-img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 .image-modal-img.sliding-left {
   transform: translateX(-100%);
   opacity: 0;
@@ -2033,18 +2036,6 @@ body.dark-theme .map-address {
   transform: translateX(100%);
   opacity: 0;
 }
-
-/* Новая картинка приходит */
-.image-modal-img.incoming-left {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-
-.image-modal-img.incoming-right {
-  transform: translateX(100%);
-  opacity: 0;
-}
-
 
 @media (max-width: 900px) {
   .image-modal-nav {

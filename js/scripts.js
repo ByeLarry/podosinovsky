@@ -342,7 +342,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Функция обновления состояния кнопок навигации
-  // Функция переключения изображений с анимацией
   function switchImage(direction) {
     let newIndex;
     if (direction === "next") {
@@ -356,7 +355,6 @@ document.addEventListener("DOMContentLoaded", () => {
         newIndex = images.length - 1; // Переходим к последнему изображению
       }
     }
-    imageModalImg.classList.add("display-none");
     imageModalImg.classList.add(
       direction === "next" ? "sliding-right" : "sliding-left"
     );
@@ -364,7 +362,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       currentImageIndex = newIndex;
       imageModalImg.src = images[currentImageIndex].src;
-      imageModalImg.classList.remove("display-none");
       imageModalImg.classList.remove("sliding-left", "sliding-right");
     }, 200);
   }

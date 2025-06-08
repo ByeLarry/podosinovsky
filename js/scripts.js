@@ -366,7 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
       imageModalImg.src = images[currentImageIndex].src;
       imageModalImg.classList.remove("display-none");
       imageModalImg.classList.remove("sliding-left", "sliding-right");
-    }, 300);
+    }, 200);
   }
 
   // Обработчики кнопок навигации

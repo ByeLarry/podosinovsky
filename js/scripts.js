@@ -281,30 +281,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Обработка загрузки изображений
-  galleryImages.forEach((img) => {
-    const imgLoadHandler = () => {
-      img.classList.remove("lazy-load");
-      img.classList.add("loaded");
-      imagesLoadedCount++;
-      updateMarqueeAnimation();
-    };
+  // Загрузка всех изображений
+  function loadAllImages() {
+    return Promise.all(
+      Array.from(galleryImages).map((img) => {
+        return new Promise((resolve) => {
+          // Убираем класс lazy-load
+          img.classList.remove("lazy-load");
+          
+          if (img.complete) {
+            img.classList.add("loaded");
+            imagesLoadedCount++;
+            updateMarqueeAnimation();
+            resolve();
+          } else {
+            img.onload = () => {
+              img.classList.add("loaded");
+              imagesLoadedCount++;
+              updateMarqueeAnimation();
+              resolve();
+            };
+            img.onerror = () => {
+              console.error("Ошибка загрузки изображения:", img.src);
+              img.classList.add("error-loaded");
+              imagesLoadedCount++;
+              updateMarqueeAnimation();
+              resolve();
+            };
+          }
+        });
+      })
+    );
+  }
 
-    const imgErrorHandler = () => {
-      console.error("Ошибка загрузки изображения:", img.src);
-      img.classList.remove("lazy-load");
-      img.classList.add("error-loaded");
-      imagesLoadedCount++;
-      updateMarqueeAnimation();
-    };
-
-    if (img.complete || (img.naturalWidth > 0 && img.naturalHeight > 0)) {
-      imgLoadHandler();
-    } else {
-      img.addEventListener("load", imgLoadHandler);
-      img.addEventListener("error", imgErrorHandler);
-    }
-  });
+  // Загружаем все изображения при инициализации
+  loadAllImages();
 
   // Обновление анимации при изменении размера окна
   window.addEventListener("resize", () => {
@@ -326,9 +337,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextButton = document.querySelector(".image-modal-next");
 
   let currentImageIndex = 0;
-  const images = Array.from(galleryImgs).filter(
-    (img) => !img.classList.contains("lazy-load")
-  );
+  const images = Array.from(galleryImgs);
+
+  // Функция обновления состояния кнопок навигации
+  function updateNavigationButtons() {
+    if (prevButton && nextButton) {
+      prevButton.style.display = images.length > 1 ? "block" : "none";
+      nextButton.style.display = images.length > 1 ? "block" : "none";
+    }
+  }
 
   // Открытие модального окна при клике на изображение
   galleryImgs.forEach((img, index) => {
@@ -341,20 +358,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Функция обновления состояния кнопок навигации
+  // Функция переключения изображений с анимацией
   function switchImage(direction) {
     let newIndex;
     if (direction === "next") {
       newIndex = currentImageIndex + 1;
       if (newIndex >= images.length) {
-        newIndex = 0; // Возвращаемся к первому изображению
+        newIndex = 0;
       }
     } else {
       newIndex = currentImageIndex - 1;
       if (newIndex < 0) {
-        newIndex = images.length - 1; // Переходим к последнему изображению
+        newIndex = images.length - 1;
       }
     }
+
     imageModalImg.classList.add(
       direction === "next" ? "sliding-right" : "sliding-left"
     );

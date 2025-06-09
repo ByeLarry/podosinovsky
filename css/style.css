@@ -87,7 +87,7 @@ body.modal-open {
   display: flex; /* Flexbox для выравнивания элементов в шапке */
   justify-content: space-between; /* Распределение пространства между элементами */
   align-items: center; /* Выравнивание элементов по центру вертикали */
-  padding: 1rem 20px;
+  padding: 1.1rem 20px;
 }
 
 /* Стили основной навигации */
@@ -1889,7 +1889,7 @@ section.map iframe:hover {
 .logo img {
   filter: brightness(1);
   transition: filter 0.3s ease;
-  transform: scale(2.25);
+  transform: scale(2.5);
 }
 
 /* body.dark-theme .logo img {

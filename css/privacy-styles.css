@@ -1,4 +1,3 @@
-/* Основной контейнер для содержимого политики конфиденциальности.*/
 .privacy-container {
     max-width: 900px;
     margin: 40px auto 40px auto;
@@ -8,14 +7,12 @@
     padding: 2.5rem 2rem;
 }
 
-/* Стили для главного заголовка.*/
 .privacy-container h1 {
     font-size: 2.2rem;
     color: var(--primary-color, #2d5a27);
     margin-bottom: 1.5rem;
 }
 
-/* Стили для подзаголовков секций.*/
 .privacy-container h2 {
     font-size: 1.3rem;
     color: var(--primary-color, #2d5a27);
@@ -23,7 +20,6 @@
     margin-bottom: 0.7rem;
 }
 
-/* Стили для основного текста, списков и параграфов.*/
 .privacy-container p,
 .privacy-container ul,
 .privacy-container ol {
@@ -32,35 +28,29 @@
     line-height: 1.7;
 }
 
-/* Отступы для списков. */
 .privacy-container ul,
 .privacy-container ol {
     margin-left: 1.2rem;
     margin-bottom: 1rem;
 }
 
-/* Отступы между элементами списка.*/
 .privacy-container li {
     margin-bottom: 0.4em;
 }
 
-/* Стили для выделенного текста.*/
 .privacy-container b,
 .privacy-container strong {
     color: var(--primary-color, #2d5a27);
 }
 
-/* Отступы между секциями.*/
 .privacy-container .section {
     margin-bottom: 2.2rem;
 }
 
-/* Отступы между подсекциями. */
 .privacy-container .subsection {
     margin-bottom: 1.2rem;
 }
 
-/* Стили для таблицы с целями обработки данных.*/
 .privacy-table {
     width: 100%;
     border-collapse: collapse;
@@ -71,7 +61,6 @@
     box-shadow: 0 2px 12px 0 rgba(44, 92, 80, 0.07);
 }
 
-/* Стили для ячеек таблицы */
 .privacy-table th,
 .privacy-table td {
     border: 1px solid #d6c7b2;
@@ -79,19 +68,16 @@
     text-align: left;
 }
 
-/* Стили для заголовков таблицы.*/
 .privacy-table th {
     background: var(--primary-color, #2d5a27);
     color: #fff;
     font-weight: 600;
 }
 
-/* Чередующийся фон для строк таблицы.*/
 .privacy-table tr:nth-child(even) td {
     background: #f5f1e8;
 }
 
-/* Адаптивные стили для мобильных устройств.*/
 @media (max-width: 700px) {
     .privacy-container {
         padding: 1.2rem 0.5rem;

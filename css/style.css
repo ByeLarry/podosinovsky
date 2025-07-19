@@ -1,183 +1,168 @@
-/*
- * Основные переменные для цветов и размеров, используемые во всем сайте.
- * Это позволяет легко управлять цветовой схемой и отступами.
- */
 :root {
-  /* Цвета */
-  --primary-color: #2d5a27; /* Основной цвет бренда (темно-зеленый) */
-  --primary-light: #3a7a33; /* Более светлый оттенок основного цвета */
-  --primary-dark: #1e3d1a; /* Более темный оттенок основного цвета */
-  --text-primary-color: #2d5a27; /* Цвет текста, соответствующий основному цвету */
-  --bg-color: #fdfbf7; /* Цвет фона страниц (очень светлый бежевый) */
-  --secondary-bg-color: #f5f1e8; /* Дополнительный цвет фона для секций/блоков (светло-бежевый) */
-  --text-secondary-color: #2c2c2c; /* Основной цвет текста (темно-серый) */
-  --hint-color: rgba(45, 90, 39, 0.6); /* Цвет для подсказок или полупрозрачных элементов */
-  --wood-color: #8b6b4a; /* Цвет, имитирующий дерево (средний) */
-  --wood-light: #a88c6f; /* Более светлый оттенок цвета дерева */
-  --wood-dark: #6b5239; /* Более темный оттенок цвета дерева */
+  --primary-color: #2d5a27; /* Основной цвет бренда (темно-зеленый). */
+  --primary-light: #3a7a33; /* Более светлый оттенок основного цвета. */
+  --primary-dark: #1e3d1a; /* Более темный оттенок основного цвета. */
+  --text-primary-color: #2d5a27; /* Цвет текста, соответствующий основному цвету. */
+  --bg-color: #fdfbf7; /* Цвет фона страниц (очень светлый бежевый). */
+  --secondary-bg-color: #f5f1e8; /* Дополнительный цвет фона для секций/блоков (светло-бежевый). */
+  --text-secondary-color: #2c2c2c; /* Основной цвет текста (темно-серый). */
+  --hint-color: rgba(45, 90, 39, 0.6); /* Цвет для подсказок или полупрозрачных элементов. */
+  --wood-color: #8b6b4a; /* Цвет, имитирующий дерево (средний). */
+  --wood-light: #a88c6f; /* Более светлый оттенок цвета дерева. */
+  --wood-dark: #6b5239; /* Более темный оттенок цвета дерева. */
+  --error-color: #dc3545; /* Цвет для ошибок. */
+  --full-white-color: #ffffff; /* Цвет для иконки успеха. */
+  --accent-light: #eaf6f3; /* Светлый акцент. */
+  --dark-accent: #090052; /* Темный акцент. */
 
-  /* Размеры отступов и интервалов */
-  --space-sm: 8px; /* Малый отступ */
-  --space-md: 16px; /* Средний отступ */
-  --space-lg: 32px; /* Большой отступ */
+  --space-sm: 8px; /* Малый отступ. */
+  --space-md: 16px; /* Средний отступ. */
+  --space-lg: 32px; /* Большой отступ. */
 
-  /* Размеры шрифтов */
-  --font-size-sm: 12px; /* Малый размер шрифта */
-  --font-size-md: 22px; /* Средний размер шрифта (используется, например, для заголовков секций) */
-  --font-size-lg: 32px; /* Крупный размер шрифта (используется, например, для заголовков секций) */
+  --font-size-sm: 12px; /* Малый размер шрифта. */
+  --font-size-md: 22px; /* Средний размер шрифта (используется, например, для заголовков секций). */
+  --font-size-lg: 32px; /* Крупный размер шрифта (используется, например, для заголовков секций). */
 
-  /* Радиусы скругления углов */
-  --border-radius-sm: 8px; /* Малый радиус скругления */
-  --border-radius-md: 10px; /* Средний радиус скругления */
-  --border-radius-lg: 20px; /* Большой радиус скругления */
+  --border-radius-sm: 8px; /* Малый радиус скругления. */
+  --border-radius-md: 10px; /* Средний радиус скругления. */
+  --border-radius-lg: 20px; /* Большой радиус скругления. */
 }
 
-/* Темная тема */
+/* Темная тема. */
 body.dark-theme {
-  /* Изменение цветов переменных для темной темы */
   --bg-color: #1a1a1a;
   --secondary-bg-color: #2d2d2d;
   --text-secondary-color: #e0e0e0;
-  --wood-color: #a88c6f; /* Цвет дерева адаптирован для темного фона */
+  --wood-color: #a88c6f; 
   --wood-light: #c4a98a;
   --wood-dark: #8b6b4a;
-  --primary-color: #4a8a44; /* Основной цвет становится светлее для контраста */
+  --primary-color: #4a8a44; 
   --primary-light: #5caa55;
   --primary-dark: #3a7a33;
 }
 
-/* Базовые стили для элемента body */
+/* Базовые стили для элемента body. */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; /* Основной шрифт */
-  background-color: var(--bg-color); /* Фон берется из переменных */
-  color: var(--text-secondary-color); /* Цвет текста берется из переменных */
-  line-height: 1.6; /* Межстрочный интервал */
-  min-height: 100vh; /* Минимальная высота viewport */
-  scroll-behavior: smooth; /* Плавная прокрутка при переходах по якорям */
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; 
+  background-color: var(--bg-color); 
+  color: var(--text-secondary-color); 
+  line-height: 1.6; 
+  min-height: 100vh; 
+  scroll-behavior: smooth; /* Плавная прокрутка при переходах по якорям. */
   margin: 0;
   padding: 0;
 }
 
-/* Блокировка скролла body при открытом модальном окне */
 body.modal-open {
   overflow: hidden;
 }
 
-/* Контейнер для центрирования контента и ограничения его ширины */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Стили шапки сайта */
 .header {
-  background: var(--secondary-bg-color); /* Фон шапки из переменных */
-  box-shadow: 0 2px 10px rgba(139, 107, 74, 0.1); /* Тень для выделения шапки */
-  position: fixed; /* Фиксированное позиционирование при прокрутке */
+  background: var(--secondary-bg-color);
+  box-shadow: 0 2px 10px rgba(139, 107, 74, 0.1);
+  position: fixed; 
   width: 100%;
   top: 0;
-  z-index: 1000; /* Высокий z-index для отображения поверх другого контента */
-  border-bottom: 2px solid var(--wood-light); /* Нижняя граница */
+  z-index: 1000;
+  border-bottom: 2px solid var(--wood-light);
   overflow: hidden;
 }
 
 .header .container {
-  display: flex; /* Flexbox для выравнивания элементов в шапке */
-  justify-content: space-between; /* Распределение пространства между элементами */
-  align-items: center; /* Выравнивание элементов по центру вертикали */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1.1rem 20px;
 }
 
-/* Стили основной навигации */
 nav {
   display: flex;
-  gap: 2rem; /* Расстояние между пунктами меню */
+  gap: 2rem;
 }
 
 nav a {
-  color: var(--wood-dark); /* Цвет ссылок */
-  text-decoration: none; /* Убираем стандартное подчеркивание */
+  color: var(--wood-dark);
+  text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+  transition: color 0.3s ease;
   position: relative;
 }
 
-/* Анимация подчеркивания ссылок навигации при наведении */
 nav a::after {
   content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
-  width: 0; /* Изначально подчеркивание отсутствует */
+  width: 0;
   height: 2px;
-  background: var(--primary-color); /* Цвет подчеркивания */
-  transition: width 0.3s ease; /* Анимация увеличения ширины */
+  background: var(--primary-color);
+  transition: width 0.3s ease;
 }
 
 nav a:hover::after {
-  width: 100%; /* Подчеркивание появляется при наведении */
+  width: 100%;
 }
 
-/* Обертка для переключателя темы */
 .theme-toggle {
   position: relative;
-  z-index: 1001; /* Выше, чем шапка, для интерактивности */
+  z-index: 1001;
   margin-left: 2rem;
 }
 
-/* Скрытие стандартного чекбокса */
 .toggle-checkbox {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* Стилизация метки (label) для чекбокса */
 .toggle-label {
   display: inline-block;
-  width: 50px; /* Ширина переключателя */
-  height: 24px; /* Высота переключателя */
-  background-color: #a4cde2; /* Цвет фона в светлой теме */
-  border-radius: 24px; /* Скругление углов */
+  width: 50px;
+  height: 24px;
+  background-color: #a4cde2;
+  border-radius: 24px;
   position: relative;
-  cursor: pointer; /* Курсор в виде указателя */
-  transition: all 0.3s ease; /* Плавные переходы */
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .toggle-label:hover {
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.5); /* Тень при наведении */
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
 }
 
-/* Круглый индикатор переключателя (солнце/луна) */
 .toggle-label::after {
   content: "";
   box-sizing: border-box;
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 20px; /* Размер индикатора */
+  width: 20px;
   height: 20px;
-  border: 1px dashed #a4cde2; /* Граница для имитации солнечных лучей */
-  background-color: #ffb700; /* Цвет солнца */
+  border: 1px dashed #a4cde2;
+  background-color: #ffb700;
   border-radius: 50%;
-  transition: all 0.3s ease; /* Анимация движения */
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Стили переключателя в активном состоянии (темная тема) */
 .toggle-checkbox:checked + .toggle-label {
-  background-color: #575757; /* Цвет фона в темной теме */
+  background-color: #575757;
 }
 
 .toggle-checkbox:checked + .toggle-label::after {
-  transform: translateX(26px); /* Перемещение индикатора вправо */
-  background-color: #090052; /* Цвет луны */
-  border: none; /* Убираем границу-лучи */
-  content: "🌙"; /* Отображаем символ луны */
+  transform: translateX(26px);
+  background-color: var(--dark-accent);
+  border: none;
+  content: "🌙";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -186,24 +171,22 @@ nav a:hover::after {
   padding: 0;
 }
 
-/* Стилизация фокуса для доступности */
 .toggle-checkbox:focus + .toggle-label {
   outline: 1.5px solid rgb(255, 255, 255);
   border: 1.5px solid rgb(0, 0, 0);
   transition: none;
 }
 
-/* Обертка для фона анимации переключателя */
 .toggle__wrapper {
   position: relative;
 }
 
-/* Анимация фона при наведении (только для устройств с ховером) */
+/* Анимация фона при наведении (только для устройств с ховером). */
 @media (hover: hover) and (pointer: fine) {
   .toggle__wrapper:hover > .toggle__back {
     height: 200px;
     width: 200px;
-    box-shadow: 0 0 15px 15px rgba(9, 0, 82, 0.9); /* Свечение луны */
+    box-shadow: 0 0 15px 15px rgba(9, 0, 82, 0.9);
     visibility: visible;
   }
   .toggle__wrapper:hover > .toggle__back > .star {
@@ -218,13 +201,12 @@ nav a:hover::after {
   }
 }
 
-/* Фон анимации (изначально маленький) */
 .toggle__back {
   visibility: visible;
   position: absolute;
   height: 2px;
   width: 2px;
-  background-color: #090052; /* Цвет фона для темной темы (ночь) */
+  background-color: var(--dark-accent);
   border-radius: 50%;
   top: 10px;
   left: 25px;
@@ -232,16 +214,15 @@ nav a:hover::after {
   transition: all 0.2s ease-in;
 }
 
-/* Звезды на ночном фоне */
 .toggle__back::before,
 .toggle__back::after {
   content: "";
   position: absolute;
   width: 2px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--full-white-color);
   border-radius: 50%;
-  box-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 5px var(--full-white-color);
 }
 
 .toggle__back::before {
@@ -258,9 +239,9 @@ nav a:hover::after {
   position: absolute;
   width: 2px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--full-white-color);
   border-radius: 50%;
-  box-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 5px var(--full-white-color);
 }
 
 .toggle__back .star1 {
@@ -284,43 +265,39 @@ nav a:hover::after {
   left: 22%;
 }
 
-/* Стили фона анимации для светлой темы */
 .toggle__wrapper_light:hover > .toggle__back {
-  box-shadow: 0 0 15px 15px #cceaf9; /* Свечение для светлой темы */
+  box-shadow: 0 0 15px 15px #cceaf9; 
 }
 
 .toggle__back_light {
-  background-color: #cceaf9; /* Цвет фона для светлой темы (день) */
+  background-color: #cceaf9;
 }
 
-/* Элементы анимации для светлой темы (солнечные лучи) */
 .toggle__back_light::before,
 .toggle__back_light::after {
   content: "";
   position: absolute;
-  width: 20px; /* Ширина лучей */
-  height: 40px; /* Высота лучей */
+  width: 20px; /* Ширина лучей. */
+  height: 40px; /* Высота лучей. */
   visibility: hidden;
-  background-color: #ffffff;
+  background-color: var(--full-white-color);
   border-radius: 50%;
-  box-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 5px var(--full-white-color);
 }
 
-/* Отображение лучей при наведении в светлой теме */
 .toggle__wrapper_light:hover > .toggle__back_light::before,
 .toggle__wrapper_light:hover > .toggle__back_light::after {
   visibility: visible;
 }
 
-/* Элементы анимации для светлой темы (дополнительные лучи) */
 .toggle__back_light .star {
   visibility: hidden;
   position: absolute;
   width: 40px; /* Ширина доп. лучей */
   height: 20px; /* Высота доп. лучей */
-  background-color: #ffffff;
+  background-color: var(--full-white-color);
   border-radius: 50%;
-  box-shadow: 0 0 5px #ffffff;
+  box-shadow: 0 0 5px var(--full-white-color);
 }
 
 .toggle__back_light .star1 {
@@ -377,7 +354,6 @@ nav a:hover::after {
   }
 }
 
-/* Базовые стили для всех секций */
 section {
   opacity: 0;
   transform: translateY(50px);
@@ -387,7 +363,6 @@ section {
   overflow: hidden;
 }
 
-/* Анимированный фон для секций Hero, Advantages, Contacts */
 section.hero::before,
 section.advantages::before,
 section.contacts::before {
@@ -398,7 +373,6 @@ section.contacts::before {
   right: 0;
   bottom: 0;
   background-color: var(--bg-color);
-  /* Паттерн из линий */
   background-image: linear-gradient(
       45deg,
       var(--primary-color) 25%,
@@ -414,15 +388,14 @@ section.contacts::before {
       transparent 75%,
       var(--primary-color) 75%,
       var(--primary-color)
-    ); /* Цвета паттерна из переменных */
-  background-size: 60px 60px; /* Размер элементов паттерна */
+    );
+  background-size: 60px 60px;
   background-position: 0 0;
-  animation: slide 8s infinite linear; /* Анимация движения фона */
-  opacity: 0.05; /* Полупрозрачность */
-  z-index: -1; /* Фон позади контента */
+  animation: slide 8s infinite linear;
+  opacity: 0.05;
+  z-index: -1;
 }
 
-/* Фон для секций About, Terms, Map */
 section.about::before,
 section.terms::before,
 section.map::before {
@@ -436,12 +409,11 @@ section.map::before {
     135deg,
     var(--secondary-bg-color),
     var(--bg-color)
-  ); /* Градиент из переменных */
+  );
   opacity: 0.5;
   z-index: -1;
 }
 
-/* Дополнительный анимированный фон для секций About, Terms, Map */
 section.about::after,
 section.terms::after,
 section.map::after {
@@ -456,14 +428,13 @@ section.map::after {
     var(--primary-color) 0%,
     var(--primary-light) 50%,
     var(--primary-color) 100%
-  ); /* Градиент из переменных */
-  background-size: 200% 200%; /* Увеличенный размер для анимации */
+  );
+  background-size: 200% 200%;
   opacity: 0.1;
   z-index: -1;
-  animation: backlight 4s infinite ease; /* Анимация "свечения" */
+  animation: backlight 4s infinite ease;
 }
 
-/* Стили для списка в секции About */
 .about-list {
   list-style: none;
   padding-left: 0;
@@ -479,28 +450,26 @@ section.map::after {
   color: var(--text-secondary-color);
 }
 
-/* Стили для кастомного маркера списка */
 .about-list li::before {
-  content: "✔"; /* Символ галочки */
+  content: "✔";
   position: absolute;
   left: 0;
   top: 0.2rem;
   font-size: 1.2rem;
-  color: var(--primary-color, #007bff); /* Цвет маркера */
+  color: var(--primary-color, #007bff);
   font-weight: bold;
-  transition: transform 0.3s ease; /* Анимация при наведении */
+  transition: transform 0.3s ease;
 }
 
 .about-list li:hover::before {
-  transform: scale(1.2); /* Увеличение маркера при наведении */
+  transform: scale(1.2);
 }
 
 .about-list li span {
   font-weight: 600;
-  color: var(--primary-color, #007bff); /* Выделение текста */
+  color: var(--primary-color, #007bff);
 }
 
-/* Анимация движения фона (паттерн) */
 @keyframes slide {
   0% {
     background-position: 0 0;
@@ -510,7 +479,7 @@ section.map::after {
   }
 }
 
-/* Анимация "свечения" фона (градиент) */
+/* Анимация "свечения" фона (градиент). */
 @keyframes backlight {
   0% {
     background-position: 0% 50%;
@@ -523,22 +492,19 @@ section.map::after {
   }
 }
 
-/* Стили для секций, ставших видимыми (после анимации Observer'а) */
 section.visible {
-  opacity: 1; /* Полная видимость */
-  transform: translateY(0); /* Возвращение на исходную позицию */
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Стили для заголовков секций */
 section h2 {
-  font-size: var(--font-size-lg); /* Размер шрифта из переменных */
-  color: var(--primary-color); /* Цвет из переменных */
+  font-size: var(--font-size-lg);
+  color: var(--primary-color);
   margin-bottom: 2rem;
   text-align: center;
   position: relative;
 }
 
-/* Подчеркивание заголовков секций */
 section h2::after {
   content: "";
   position: absolute;
@@ -547,17 +513,16 @@ section h2::after {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: var(--wood-color); /* Цвет из переменных */
+  background: var(--wood-color);
 }
 
-/* Стили секции Hero (главный экран) */
 .hero {
   background: linear-gradient(
     120deg,
     var(--secondary-bg-color) 0%,
     var(--bg-color) 100%
-  ); /* Градиентный фон */
-  padding: 160px 0 100px; /* Отступы */
+  );
+  padding: 160px 0 100px;
   text-align: center;
   position: relative;
 }
@@ -575,100 +540,94 @@ section h2::after {
   color: var(--text-secondary-color);
 }
 
-/* Базовые стили для кнопок */
 .btn {
   display: inline-block;
   padding: 1rem 2rem;
-  background: var(--primary-color); /* Цвет фона из переменных */
-  color: var(--bg-color); /* Цвет текста из переменных */
+  background: var(--primary-color);
+  color: var(--bg-color);
   text-decoration: none;
-  border-radius: var(--border-radius-md); /* Скругление углов из переменных */
+  border-radius: var(--border-radius-md);
   font-weight: 600;
-  transition: all 0.3s ease; /* Плавные переходы */
+  transition: all 0.3s ease;
   border: none;
   cursor: pointer;
   position: relative;
-  overflow: hidden; /* Скрытие элементов, выходящих за границы */
+  overflow: hidden;
 }
 
-/* Анимация свечения при наведении на кнопку */
 .btn::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%; /* Изначально за пределами кнопки слева */
+  left: -100%;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый цвет */
-  transform: skewX(-20deg); /* Наклон */
-  transition: all 0.5s ease; /* Плавное движение */
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
 }
 
 .btn:hover::before {
-  left: 100%; /* Перемещение свечения вправо */
+  left: 100%;
 }
 
-/* Эффекты при наведении на кнопку */
 .btn:hover {
-  background: var(--primary-light); /* Изменение цвета фона */
-  transform: translateY(-2px); /* Небольшой сдвиг вверх */
-  box-shadow: 0 5px 15px rgba(45, 90, 39, 0.3); /* Тень */
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(45, 90, 39, 0.3);
 }
 
-/* Стили секции Advantages */
 .advantages .adv-list {
-  display: grid; /* Grid layout */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивные колонки */
-  gap: 2rem; /* Расстояние между элементами сетки */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   margin-top: 3rem;
 }
 
 .advantages .adv-item {
   padding: 25px;
-  border-left: 6px solid var(--primary-color); /* Левая граница как индикатор */
+  border-left: 6px solid var(--primary-color);
   background: linear-gradient(
     135deg,
     var(--secondary-bg-color),
     var(--bg-color)
-  ); /* Градиентный фон */
-  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; /* Скругление углов */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
-  box-shadow: 0 2px 10px rgba(139, 107, 74, 0.1); /* Тень */
+  );
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(139, 107, 74, 0.1);
 }
 
-/* Эффекты при наведении на элемент преимущества */
 .advantages .adv-item:hover {
-  transform: translateY(-4px); /* Сдвиг вверх */
-  box-shadow: 0 8px 24px rgba(139, 107, 74, 0.15); /* Увеличенная тень */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(139, 107, 74, 0.15);
 }
 
-/* Стили для формы обратной связи (базовый вариант) */
 .contact-form {
   max-width: 600px;
   margin: 2rem auto;
-  display: grid; /* Grid layout */
-  gap: 1rem; /* Расстояние между полями */
+  display: grid;
+  gap: 1rem;
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 1rem;
-  border: 1px solid var(--wood-light); /* Граница из переменных */
-  border-radius: var(--border-radius-md); /* Скругление углов из переменных */
+  border: 1px solid var(--wood-light);
+  border-radius: var(--border-radius-md);
   font-family: inherit;
   font-size: 1rem;
-  background: var(--secondary-bg-color); /* Фон из переменных */
-  color: var(--text-secondary-color); /* Цвет текста из переменных */
+  background: var(--secondary-bg-color);
+  color: var(--text-secondary-color);
 }
 
 .contact-form textarea {
   min-height: 150px;
-  resize: vertical; /* Разрешено изменять размер только по вертикали */
+  resize: vertical;
 }
 
 .contact-form button {
-  background: var(--primary-color); /* Цвет фона из переменных */
-  color: var(--bg-color); /* Цвет текста из переменных */
+  background: var(--primary-color);
+  color: var(--bg-color);
   padding: 1rem;
   border: none;
   border-radius: var(--border-radius-md);
@@ -678,24 +637,23 @@ section h2::after {
 }
 
 .contact-form button:hover {
-  background: var(--primary-light); /* Изменение цвета при наведении */
+  background: var(--primary-light);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(45, 90, 39, 0.3);
 }
 
-/* Стили подвала сайта */
 .footer {
-  background: var(--secondary-bg-color); /* Фон подвала из переменных */
-  color: var(--wood-dark); /* Цвет текста из переменных */
+  background: var(--secondary-bg-color);
+  color: var(--wood-dark);
   padding: 2rem 0;
   text-align: center;
-  border-top: 2px solid var(--wood-light); /* Верхняя граница */
+  border-top: 2px solid var(--wood-light);
   position: relative;
   overflow: hidden;
 }
 
 .footer-content {
-  display: flex; /* Flexbox */
+  display: flex;
   flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
@@ -704,8 +662,8 @@ section h2::after {
 }
 
 .footer-row-top {
-  display: flex; /* Flexbox для верхней строки подвала */
-  justify-content: space-between; /* Распределение пространства */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   width: 100%;
@@ -741,14 +699,14 @@ section h2::after {
 
 .footer-privacy-link {
   font-size: 1rem;
-  color: var(--wood-dark); /* Цвет ссылки из переменных */
+  color: var(--wood-dark);
   text-decoration: underline;
   opacity: 0.85;
-  transition: color 0.2s; /* Плавное изменение цвета */
+  transition: color 0.2s;
 }
 
 .footer-privacy-link:hover {
-  color: var(--primary-color); /* Изменение цвета при наведении */
+  color: var(--primary-color);
   opacity: 1;
 }
 
@@ -785,7 +743,6 @@ section h2::after {
   opacity: 0.7;
 }
 
-/* Медиа-запрос для адаптивности подвала на экранах <= 700px */
 @media (max-width: 700px) {
   .footer-content {
     flex-direction: column;
@@ -794,7 +751,7 @@ section h2::after {
     gap: 1.5rem;
   }
   .footer-row-top {
-    flex-direction: column; /* Элементы верхней строки по вертикали */
+    flex-direction: column;
     gap: 1rem;
     align-items: center;
     width: 100%;
@@ -802,7 +759,7 @@ section h2::after {
   .footer-copyright-block,
   .footer-privacy-block,
   .footer-inn-block {
-    position: static; /* Убираем абсолютное позиционирование */
+    position: static;
     transform: none;
     left: auto;
     align-items: center;
@@ -820,27 +777,30 @@ section h2::after {
   }
 }
 
-/* Стили для секции партнерства (Terms) */
 .terms-flex {
-  display: flex; /* Flexbox */
+  display: flex;
   gap: 4rem;
   align-items: flex-start;
-  flex-wrap: wrap; /* Перенос элементов на новую строку при уменьшении ширины */
+  flex-wrap: wrap;
 }
+
 .terms-info {
   flex: 1 1 200px;
   min-width: 300px;
 }
+
 .terms-accordion {
   flex: 1 1 200px;
   min-width: 320px;
   max-width: 600px;
 }
+
 .accordion-item {
   border-bottom: 1px solid #bfcfc6;
   margin-bottom: 0.5rem;
   background: transparent;
 }
+
 .accordion-header {
   width: 100%;
   background: none;
@@ -857,9 +817,11 @@ section h2::after {
   cursor: pointer;
   transition: background 0.2s;
 }
+
 .accordion-header:hover {
   background: rgba(164, 205, 226, 0.08);
 }
+
 .accordion-icon {
   font-size: 2.2rem;
   line-height: 1;
@@ -868,9 +830,11 @@ section h2::after {
   transition: transform 0.3s;
   user-select: none;
 }
+
 .accordion-item.open .accordion-icon {
   transform: rotate(90deg);
 }
+
 .accordion-body {
   max-height: 0;
   overflow: hidden;
@@ -878,10 +842,12 @@ section h2::after {
   background: none;
   padding: 0 0.5rem;
 }
+
 .accordion-item.open .accordion-body {
   padding: 1rem 0.5rem 1.5rem 1.5rem;
   background: none;
 }
+
 .accordion-body ul {
   margin: 0;
   padding-left: 1.2rem;
@@ -939,8 +905,9 @@ section h2::after {
   max-width: 600px;
   margin: 0 auto;
 }
+
 .fancy-accordion-item {
-  background: #fff;
+  background: var(--full-white-color);
   border-radius: 18px;
   margin-bottom: 1.2rem;
   box-shadow: 0 2px 16px 0 rgba(44, 92, 80, 0.07);
@@ -949,9 +916,11 @@ section h2::after {
   position: relative;
   transition: box-shadow 0.3s;
 }
+
 .fancy-accordion-item.open {
   box-shadow: 0 4px 24px 0 rgba(44, 92, 80, 0.13);
 }
+
 .fancy-accordion-header {
   width: 100%;
   background: none;
@@ -973,12 +942,15 @@ section h2::after {
   -webkit-user-select: none;
   user-select: none;
 }
+
 .fancy-accordion-header:hover {
-  background: #eaf6f3;
+  background: var(--accent-light);
 }
+
 .fancy-accordion-header:active {
-  background: #eaf6f3;
+  background: var(--accent-light);
 }
+
 .fancy-icon {
   position: absolute;
   left: 1.5rem;
@@ -987,7 +959,7 @@ section h2::after {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #eaf6f3;
+  background: var(--accent-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -997,28 +969,34 @@ section h2::after {
   opacity: 0;
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.3s;
 }
+
 .fancy-accordion-item.open .fancy-icon {
   transform: translateY(-50%) translateX(0);
   opacity: 1;
 }
+
 .fancy-icon--truck::before {
   content: "\1F69A";
   font-size: 1.3em;
 }
+
 .fancy-icon--money::before {
   content: "\1F4B0";
   font-size: 1.3em;
 }
+
 .fancy-icon--shield::before {
   content: "\1F6E1";
   font-size: 1.3em;
 }
+
 .fancy-title {
   font-weight: 600;
   flex: 1;
   color: var(--primary-dark);
   letter-spacing: 0.01em;
 }
+
 .fancy-arrow {
   margin-left: 1.2rem;
   width: 2.2rem;
@@ -1028,6 +1006,7 @@ section h2::after {
   justify-content: center;
   position: relative;
 }
+
 .fancy-arrow::before,
 .fancy-arrow::after {
   content: "";
@@ -1036,21 +1015,25 @@ section h2::after {
   border-radius: 2px;
   transition: transform 0.3s;
 }
+
 .fancy-arrow::before {
   width: 2rem;
   height: 0.22rem;
   left: 0.1rem;
   top: 1rem;
 }
+
 .fancy-arrow::after {
   width: 0.22rem;
   height: 2rem;
   left: 1rem;
   top: 0.1rem;
 }
+
 .fancy-accordion-item.open .fancy-arrow::after {
   transform: scaleY(0);
 }
+
 .fancy-accordion-body {
   max-height: 0;
   overflow: hidden;
@@ -1061,9 +1044,11 @@ section h2::after {
   font-size: 1.13rem;
   position: relative;
 }
+
 .fancy-accordion-item.open .fancy-accordion-body {
   padding: 1.2rem 2.5rem 1.5rem 4.5rem;
 }
+
 @media (max-width: 900px) {
   .terms-flex {
     flex-direction: column;
@@ -1094,12 +1079,14 @@ section h2::after {
 .hero-animated::before {
   background: none;
 }
+
 .hero-animated {
   position: relative;
   overflow: hidden;
   min-height: 420px;
   background-color: var(--bg-color);
 }
+
 .hero-animated::before {
   content: "";
   position: absolute;
@@ -1130,9 +1117,11 @@ section h2::after {
   opacity: 0.05;
   z-index: 0;
 }
+
 body.dark-theme .hero-animated {
   background-color: var(--bg-color);
 }
+
 body.dark-theme .hero-animated::before {
   background-color: var(--bg-color);
   background-image: linear-gradient(
@@ -1156,6 +1145,7 @@ body.dark-theme .hero-animated::before {
   animation: slide 8s infinite linear;
   opacity: 0.05;
 }
+
 @keyframes hero-bg-move {
   0% {
     transform: scale(1) translateY(0);
@@ -1164,6 +1154,7 @@ body.dark-theme .hero-animated::before {
     transform: scale(1.05) translateY(30px);
   }
 }
+
 .hero-animated .container {
   position: relative;
   z-index: 1;
@@ -1171,6 +1162,7 @@ body.dark-theme .hero-animated::before {
   padding-top: 160px;
   padding-bottom: 100px;
 }
+
 .hero-slogan {
   font-size: 2.7rem;
   color: var(--primary-color);
@@ -1181,6 +1173,7 @@ body.dark-theme .hero-animated::before {
   transform: translateY(40px);
   animation: hero-fade-in 1.2s 0.2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
+
 .hero-slogan-sub {
   display: block;
   font-size: 1.3rem;
@@ -1189,6 +1182,7 @@ body.dark-theme .hero-animated::before {
   margin-top: 0.5rem;
   letter-spacing: 0.02em;
 }
+
 .hero-desc {
   font-size: 1.15rem;
   color: var(--text-secondary-color);
@@ -1197,12 +1191,14 @@ body.dark-theme .hero-animated::before {
   transform: translateY(40px);
   animation: hero-fade-in 1.2s 0.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
+
 @keyframes hero-fade-in {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .hero-animated .btn {
   font-size: 1.1rem;
   padding: 1.1rem 2.3rem;
@@ -1212,6 +1208,7 @@ body.dark-theme .hero-animated::before {
   transform: translateY(40px);
   animation: hero-fade-in 1.2s 0.8s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
+
 @media (max-width: 700px) {
   .hero-animated .container {
     padding-top: 100px;
@@ -1229,7 +1226,7 @@ body.dark-theme .hero-animated::before {
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  background: #fff;
+  background: var(--full-white-color);
   border-radius: 22px;
   box-shadow: 0 4px 32px 0 rgba(44, 92, 80, 0.1);
   padding: 2.5rem 2rem;
@@ -1238,10 +1235,12 @@ body.dark-theme .hero-animated::before {
   position: relative;
   transition: box-shadow 0.3s;
 }
+
 body.dark-theme .contact-card {
   background: var(--secondary-bg-color);
   box-shadow: 0 4px 32px 0 rgba(139, 107, 74, 0.13);
 }
+
 .contact-photo {
   width: 110px;
   height: 110px;
@@ -1251,31 +1250,38 @@ body.dark-theme .contact-card {
   box-shadow: 0 2px 12px 0 rgba(44, 92, 80, 0.1);
   background: #f5f1e8;
 }
+
 body.dark-theme .contact-photo {
   border-color: var(--primary-light);
   background: var(--secondary-bg-color);
 }
+
 .contact-info {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
+
 .contact-name {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary-color);
 }
+
 body.dark-theme .contact-name {
   color: var(--primary-light);
 }
+
 .contact-role {
   font-size: 1.05rem;
   color: var(--wood-dark);
   margin-bottom: 0.5rem;
 }
+
 body.dark-theme .contact-role {
   color: var(--wood-light);
 }
+
 .contact-phone,
 .contact-email {
   font-size: 1.1rem;
@@ -1285,19 +1291,23 @@ body.dark-theme .contact-role {
   transition: color 0.2s;
   font-weight: 500;
 }
+
 .contact-phone:hover,
 .contact-email:hover {
   color: var(--primary-color);
   text-decoration: underline;
 }
+
 body.dark-theme .contact-phone,
 body.dark-theme .contact-email {
   color: var(--wood-light);
 }
+
 body.dark-theme .contact-phone:hover,
 body.dark-theme .contact-email:hover {
   color: var(--primary-light);
 }
+
 @media (max-width: 900px) {
   .contacts .contacts-list {
     flex-direction: column;
@@ -1337,6 +1347,7 @@ body.dark-theme .contact-email:hover {
     overflow: visible;
   }
 }
+
 @media (max-width: 600px) {
   .contact-card {
     flex-direction: column;
@@ -1357,6 +1368,7 @@ body.dark-theme .contact-email:hover {
   background: var(--secondary-bg-color);
   padding: 0;
 }
+
 .contact-form-wrapper {
   display: flex;
   min-height: 420px;
@@ -1365,6 +1377,7 @@ body.dark-theme .contact-email:hover {
   border-radius: 0 0 24px 24px;
   overflow: hidden;
 }
+
 .contact-form-img {
   flex: 1 1 45%;
   min-width: 280px;
@@ -1375,6 +1388,7 @@ body.dark-theme .contact-email:hover {
   overflow: hidden;
   position: relative;
 }
+
 .contact-form-img img {
   width: 100%;
   height: 100%;
@@ -1383,6 +1397,7 @@ body.dark-theme .contact-email:hover {
   transform: scale(1.13) translateY(18px);
   transition: transform 0.4s cubic-bezier(0.77, 0, 0.18, 1);
 }
+
 .contact-form-modern {
   flex: 1 1 55%;
   background: var(--secondary-bg-color);
@@ -1392,6 +1407,7 @@ body.dark-theme .contact-email:hover {
   justify-content: center;
   min-width: 320px;
 }
+
 .contact-form-modern h2 {
   font-size: 2.5rem;
   color: var(--primary-color);
@@ -1399,16 +1415,19 @@ body.dark-theme .contact-email:hover {
   font-family: inherit;
   font-weight: 600;
 }
+
 .contact-form-modern label {
   display: block;
   margin-bottom: 1.5rem;
 }
+
 .contact-form-modern label span {
   display: block;
   margin-bottom: 0.5rem;
   color: var(--wood-dark);
   font-size: 1.1rem;
 }
+
 .contact-form-modern input[type="text"],
 .contact-form-modern input[type="tel"],
 .contact-form-modern textarea {
@@ -1424,15 +1443,18 @@ body.dark-theme .contact-email:hover {
   transition: border-color 0.2s;
   resize: none;
 }
+
 .contact-form-modern input[type="text"]:focus,
 .contact-form-modern input[type="tel"]:focus,
 .contact-form-modern textarea:focus {
   border-bottom: 2px solid var(--primary-dark);
 }
+
 .contact-form-modern textarea {
   min-height: 60px;
   max-height: 180px;
 }
+
 .checkbox-label {
   display: flex;
   align-items: center;
@@ -1441,20 +1463,24 @@ body.dark-theme .contact-email:hover {
   margin-bottom: 2.2rem;
   color: var(--wood-dark);
 }
+
 .checkbox-label input[type="checkbox"] {
   width: 20px;
   height: 20px;
   accent-color: var(--primary-color);
   border-radius: 4px;
 }
+
 .checkbox-label a {
   color: var(--primary-dark);
   text-decoration: underline;
   transition: color 0.2s;
 }
+
 .checkbox-label a:hover {
   color: var(--primary-color);
 }
+
 .contact-form-modern .btn {
   width: 100%;
   margin-top: 0.5rem;
@@ -1468,9 +1494,11 @@ body.dark-theme .contact-email:hover {
   box-shadow: 0 2px 12px 0 rgba(45, 90, 39, 0.1);
   transition: background 0.2s;
 }
+
 .contact-form-modern .btn:hover {
   background: var(--primary-dark);
 }
+
 .contact-form-modern .btn:disabled {
   background-color: #ccc;
   color: #666;
@@ -1513,6 +1541,7 @@ body.dark-theme .contact-email:hover {
   align-items: stretch;
   margin-top: 2.5rem;
 }
+
 .contacts .contact-card {
   flex: 1 1 400px;
   min-width: 320px;
@@ -1522,6 +1551,7 @@ body.dark-theme .contact-email:hover {
   box-sizing: border-box;
   transition: max-width 0.3s, min-width 0.3s;
 }
+
 @media (max-width: 900px) {
   .contacts .contacts-list {
     flex-direction: column;
@@ -1561,6 +1591,7 @@ body.dark-theme .contact-email:hover {
     overflow: visible;
   }
 }
+
 @media (max-width: 600px) {
   .contact-card {
     flex-direction: column;
@@ -1663,7 +1694,7 @@ body.dark-theme .contact-email:hover {
   border-radius: 12px;
   box-shadow: 0 4px 32px 0 rgba(44, 92, 80, 0.1);
   object-fit: cover;
-  background: #fff;
+  background: var(--full-white-color);
   height: 220px;
   width: auto;
   max-width: 320px;
@@ -1828,8 +1859,8 @@ section.map iframe:hover {
 }
 
 .form-notification--error {
-  background: #dc3545;
-  color: #fff;
+  background: var(--error-color);
+  color: var(--full-white-color);
 }
 
 .form-notification.show {
@@ -1853,7 +1884,7 @@ section.map iframe:hover {
 }
 
 .form-notification--error .form-notification-icon {
-  background: #fff;
+  background: var(--full-white-color);
 }
 
 .form-notification--success .form-notification-icon::before {
@@ -1865,7 +1896,7 @@ section.map iframe:hover {
 
 .form-notification--error .form-notification-icon::before {
   content: "!";
-  color: #dc3545;
+  color: var(--error-color);
   font-size: 14px;
   font-weight: bold;
 }
@@ -1892,6 +1923,7 @@ section.map iframe:hover {
   transform: scale(2.5);
 }
 
+/* Фильтр для логотипа в темной теме. */
 /* body.dark-theme .logo img {
   filter: brightness(0) invert(1);
 } */
@@ -1939,7 +1971,7 @@ section.map iframe:hover {
   top: 20px;
   right: 20px;
   font-size: 30px;
-  color: #fff;
+  color: var(--full-white-color);
   background: none;
   border: none;
   cursor: pointer;
@@ -1997,7 +2029,7 @@ body.dark-theme .map-address {
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.1);
   border: none;
-  color: #fff;
+  color: var(--full-white-color);
   font-size: 2.25rem;
   padding: 0;
   cursor: pointer;

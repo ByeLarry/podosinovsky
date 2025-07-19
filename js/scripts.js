@@ -1,14 +1,13 @@
-// Инициализация при загрузке DOM
+/**
+ * Инициализация при загрузке DOM.
+ */
 document.addEventListener("DOMContentLoaded", () => {
-  // Предотвращение автоматической прокрутки к якорю на сенсорных устройствах
+  // Предотвращение автоматической прокрутки к якорю на сенсорных устройствах.
   if ("ontouchstart" in window) {
     const hash = window.location.hash;
     if (hash) {
-      // Сохраняем хэш
       const targetId = hash.substring(1);
-      // Удаляем хэш из URL без прокрутки
       history.replaceState(null, null, " ");
-      // Добавляем обработчик для ручной прокрутки
       document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
         if (link.getAttribute("href") === hash) {
           link.addEventListener("click", (e) => {
@@ -23,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Плавная прокрутка к якорям для всех ссылок с якорями
+  // Плавная прокрутка к якорям для всех ссылок с якорями.
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Настройка Intersection Observer для анимации появления секций
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
@@ -47,13 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.1 }
   );
 
-  // Наблюдение за всеми секциями
   document.querySelectorAll("section").forEach((section) => {
     observer.observe(section);
   });
 });
 
-// Обработка аккордеона
+/**
+ * Обработка аккордеона.
+ */
 const accordionHeaders = document.querySelectorAll(".accordion-header");
 accordionHeaders.forEach((header) => {
   header.addEventListener("click", function () {
@@ -61,13 +60,13 @@ accordionHeaders.forEach((header) => {
     const body = item.querySelector(".accordion-body");
     const icon = this.querySelector(".accordion-icon");
     const isOpen = item.classList.contains("open");
-    // Закрываем все остальные элементы
+
     document.querySelectorAll(".accordion-item").forEach((i) => {
       i.classList.remove("open");
       i.querySelector(".accordion-body").style.maxHeight = null;
       i.querySelector(".accordion-icon").textContent = "+";
     });
-    // Открываем текущий элемент, если он был закрыт
+
     if (!isOpen) {
       item.classList.add("open");
       body.style.maxHeight = body.scrollHeight + "px";
@@ -76,7 +75,9 @@ accordionHeaders.forEach((header) => {
   });
 });
 
-// Обработка стильного аккордеона
+/**
+ * Обработка аккордеона с анимацией.
+ */
 const fancyHeaders = document.querySelectorAll(".fancy-accordion-header");
 fancyHeaders.forEach((header) => {
   header.addEventListener("click", function () {
@@ -95,12 +96,16 @@ fancyHeaders.forEach((header) => {
   });
 });
 
-// Управление темной темой
+/**
+ * Управление темной темой.
+ */
 const themeToggle = document.getElementById("dark-mode-toggle");
 const toggleWrapper = document.querySelector(".toggle__wrapper");
 const toggleBack = document.querySelector(".toggle__back");
 
-// Проверка сохраненной темы
+/**
+ * Проверка сохраненной темы.
+ */
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
   document.body.classList.add("dark-theme");
@@ -112,7 +117,9 @@ if (savedTheme === "dark") {
   toggleBack.classList.add("toggle__back_light");
 }
 
-// Обработчик переключения темы
+/**
+ * Обработчик переключения темы.
+ */
 themeToggle.addEventListener("change", () => {
   if (themeToggle.checked) {
     document.body.classList.add("dark-theme");
@@ -127,7 +134,9 @@ themeToggle.addEventListener("change", () => {
   }
 });
 
-// Валидация формы
+/**
+ * Валидация формы.
+ */
 const form = document.querySelector(".contact-form-modern");
 const submitButton = form.querySelector('button[type="submit"]');
 const requiredInputs = form.querySelectorAll(
@@ -136,7 +145,9 @@ const requiredInputs = form.querySelectorAll(
 const checkbox = form.querySelector('input[type="checkbox"]');
 const phoneInput = form.querySelector('input[type="tel"]');
 
-// Проверка корректности российского номера телефона
+/**
+ * Проверка корректности российского номера телефона.
+ */
 function isValidRussianPhone(phone) {
   const digits = phone.replace(/\D/g, "");
 
@@ -149,7 +160,9 @@ function isValidRussianPhone(phone) {
   return true;
 }
 
-// Форматирование номера телефона
+/**
+ * Форматирование номера телефона.
+ */
 function formatPhoneNumber(input) {
   let value = input.value.replace(/\D/g, "");
 
@@ -182,13 +195,11 @@ function formatPhoneNumber(input) {
   input.value = formattedValue;
 }
 
-// Обработка ввода телефона
 phoneInput.addEventListener("input", function (e) {
   formatPhoneNumber(this);
   checkFormValidity();
 });
 
-// Проверка валидности всей формы
 function checkFormValidity() {
   let isValid = true;
 
@@ -209,17 +220,14 @@ function checkFormValidity() {
   submitButton.disabled = !isValid;
 }
 
-// Добавление обработчиков для проверки валидности
 requiredInputs.forEach((input) => {
   input.addEventListener("input", checkFormValidity);
 });
 
 checkbox.addEventListener("change", checkFormValidity);
 
-// Начальная проверка валидности
 checkFormValidity();
 
-// Показ уведомлений
 function showNotification(type = "success") {
   document.querySelectorAll(".form-notification").forEach((notification) => {
     notification.classList.remove("show");
@@ -233,7 +241,6 @@ function showNotification(type = "success") {
   }, 3000);
 }
 
-// Обработка отправки формы
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -260,14 +267,15 @@ form.addEventListener("submit", async function (e) {
   }
 });
 
-// Инициализация галереи и модального окна
+/**
+ * Инициализация галереи и модального окна.
+ */
 document.addEventListener("DOMContentLoaded", () => {
   const galleryImages = document.querySelectorAll("img.gallery-img");
   const galleryTrack = document.querySelector(".gallery-marquee-track");
   let imagesLoadedCount = 0;
   const totalImages = galleryImages.length;
 
-  // Обновление анимации бегущей строки после загрузки всех изображений
   const updateMarqueeAnimation = () => {
     if (imagesLoadedCount === totalImages) {
       const trackWidth = galleryTrack.scrollWidth;
@@ -281,7 +289,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Загрузка всех изображений
   function loadAllImages() {
     return Promise.all(
       Array.from(galleryImages).map((img) => {
@@ -314,10 +321,9 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // Загружаем все изображения при инициализации
   loadAllImages();
 
-  // Обновление анимации при изменении размера окна
+  // Обновление анимации при изменении размера окна.
   window.addEventListener("resize", () => {
     imagesLoadedCount = 0;
     galleryImages.forEach((img) => {
@@ -328,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateMarqueeAnimation();
   });
 
-  // Инициализация модального окна для просмотра изображений
+  // Инициализация модального окна для просмотра изображений.
   const imageModalOverlay = document.querySelector(".image-modal-overlay");
   const imageModalImg = document.querySelector(".image-modal-img");
   const galleryImgs = document.querySelectorAll(".gallery-img");
@@ -339,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentImageIndex = 0;
   const images = Array.from(galleryImgs);
 
-  // Функция обновления состояния кнопок навигации
+  // Функция обновления состояния кнопок навигации.
   function updateNavigationButtons() {
     if (prevButton && nextButton) {
       prevButton.style.display = images.length > 1 ? "block" : "none";
@@ -347,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Открытие модального окна при клике на изображение
+  // Открытие модального окна при клике на изображение.
   galleryImgs.forEach((img, index) => {
     img.addEventListener("click", () => {
       currentImageIndex = index;
@@ -358,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Функция переключения изображений с анимацией
+  // Функция переключения изображений с анимацией.
   function switchImage(direction) {
     let newIndex;
     if (direction === "next") {
@@ -384,11 +390,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 200);
   }
 
-  // Обработчики кнопок навигации
   prevButton.addEventListener("click", () => switchImage("prev"));
   nextButton.addEventListener("click", () => switchImage("next"));
 
-  // Обработка клавиш клавиатуры
+  // Обработка клавиш клавиатуры.
   document.addEventListener("keydown", (e) => {
     if (imageModalOverlay.classList.contains("visible")) {
       if (e.key === "ArrowLeft") {
@@ -402,7 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Закрытие модального окна при клике на оверлей
+  // Закрытие модального окна при клике на оверлей.
   imageModalOverlay.addEventListener("click", (e) => {
     if (e.target === imageModalOverlay) {
       imageModalOverlay.classList.remove("visible");
@@ -410,14 +415,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Закрытие модального окна при клике на кнопку закрытия
+  // Закрытие модального окна при клике на кнопку закрытия.
   imageModalCloseButton.addEventListener("click", () => {
     imageModalOverlay.classList.remove("visible");
     document.body.classList.remove("modal-open");
   });
 });
 
-
+/**
+ * Загрузка всех изображений.
+ */
 function loadAllImages() {
   const images = Array.from(galleryImgs);
   return Promise.all(
